@@ -1,0 +1,90 @@
+@font-face {
+  font-family: pokemon;
+  src: url(PokemonSolid.ttf);
+}
+
+@font-face {
+  font-family: pokemon2;
+  src: url(PokemonHollow.ttf);
+}
+
+h1{
+  font-family: pokemon;
+  text-align: center;
+}
+
+body{
+  background-color: brown;
+  text-align: center;
+}
+
+.Contenedor-Pokemon {
+  font-family: pokemon;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 40px;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 40px;
+  margin-top: 40px;
+  }
+ 
+  
+  .fuego {
+    background-color: red;
+  }
+  .agua {
+    background-color: blue;
+  }
+  .planta {
+    background-color: green;
+  }
+  .veneno{
+    background-color: blueviolet;;
+  }
+  .volador{
+    background-color: rgb(150, 209, 247);
+  }
+  .bicho{
+    background-color: olive;
+  }
+  .normal{
+    background-color: grey;
+  }
+  .tierra{
+    background-color: saddlebrown;
+  }
+  .electrico{
+    background-color: yellow;
+  }
+  .hada{
+    background-color: palevioletred;
+  }
+  .lucha{
+    background-color: orangered;
+  }
+  .psiquico{
+    background-color: deeppink;
+  }
+  .roca{
+    background-color: rgb(183, 193, 202);
+  }
+  .acero{
+    background-color: rgb(99, 131, 190);
+  }
+  .hielo{
+    background-color: aqua;
+  }
+  .dragon{
+    background-color: mediumblue;
+  }
+  .fantasma{
+    background-color: darkviolet;
+  }
+  .siniestro{
+    background-color: rgb(20, 7, 0);
+  }
+
+  
+  

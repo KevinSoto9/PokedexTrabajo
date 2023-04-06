@@ -1,0 +1,18 @@
+<!DOCtype html>
+    <html>
+
+        <head>
+            <h1>Pokédex</h1>
+            <link rel="stylesheet" href="estilosPokedex.css">
+            <meta name="viewport" content="width=device-widwth, initial-scale=1.0">
+        </head>
+
+        <body>
+        <div class = "Contenedor-Pokemon">
+
+        </div>
+            
+        <script src = "javascrpitPokedex.js"> </script>
+        </body>
+        
+</html>
