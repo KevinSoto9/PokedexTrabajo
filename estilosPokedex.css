@@ -13,10 +13,11 @@ header {
   font-size: 30px;
   color: yellow;
   -webkit-text-stroke: 2px blue;
+  letter-spacing: 2px;
 }
 
 body{
-  background-color: rgb(226, 218, 218);
+  background-color: rgb(243, 239, 239);
   text-align: center;
 }
 
