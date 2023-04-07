@@ -32,21 +32,28 @@ input[type = "checkbox"] {
   outline: none;
   border-radius: 25px;
   cursor: pointer;
+  transition: 0.5s ease;
 }
 
-input[type = "checkbox"] :checked {
-  background-color: green;
+input[type = "checkbox"]:checked {
+  background-color: rgb(255, 255, 255);
 }
 
-input[type = "checkbox"] ::before {
+input[type = "checkbox"]::before {
   content: '';
   position:absolute;
   width: 16px;
   height: 16px;
-  background-color: antiquewhite;
+  background-color: rgb(255, 255, 255);
+  border: 0.5px black solid;
   border-radius: 50%;
-  top: 2px;
+  top: 1px;
   left: 2px;
+  transition: 0.7s ease;
+}
+
+input[type = "checkbox"]:checked::before {
+  transform: translateX(20px);
 }
 
 .modo-oscuro {
@@ -70,15 +77,19 @@ body{
   margin-right: auto;
   margin-bottom: 40px;
   margin-top: 40px;
-  }
+}
 
   .name {
     text-transform: capitalize;
-  }
+}
 
   .tarjeta {
   border-radius: 20px;
   padding: 5px;
   box-shadow: 0 3px 15px rgba(70, 68, 68, 0.5);
+}
+
+.tarjeta :hover {
+  cursor: pointer;
 }
   
