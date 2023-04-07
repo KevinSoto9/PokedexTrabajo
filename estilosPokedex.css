@@ -19,13 +19,12 @@ header {
   font-size: 30px;
   color: yellow;
   -webkit-text-stroke: 2px blue;
+  text-shadow: 2px 2px 4px #3f4cc0;
   letter-spacing: 2px;
 }
 
 input[type = "checkbox"] {
   position: relative;
-  margin-top: 15px;
-  margin-left: 20px;
   width: 40px;
   height: 20px;
   background-color: rgb(85, 83, 83);
@@ -76,4 +75,10 @@ body{
   .name {
     text-transform: capitalize;
   }
+
+  .tarjeta {
+  border-radius: 20px;
+  padding: 5px;
+  box-shadow: 0 3px 15px rgba(70, 68, 68, 0.5);
+}
   
