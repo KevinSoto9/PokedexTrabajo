@@ -35,10 +35,15 @@ function CrearPokemon(pokemon){
     const name = document.createElement("p");
     name.classList.add("name");
     name.textContent = pokemon.name;
+
+    const type = document.createElement("div");
+    type.classList.add("type");
+    type.textContent = pokemon.types.toString();
   
     card.appendChild(spriteContainer);
     card.appendChild(number);
     card.appendChild(name);
+    card.appendChild(type);
 
     ContenedorPokemon.appendChild(card);
   
@@ -48,6 +53,11 @@ function Quitatodo(parent) {
     while (parent.firstChild) {
       parent.removeChild(parent.firstChild);
     }
-  }
+}
+
+function modoOscuro(){
+  let main_body = document.body;
+  main_body.classList.toggle("modo-oscuro");
+}
 
 fetchPokemons(1);
