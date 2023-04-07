@@ -15,11 +15,8 @@ function fetchPokemon(id) {
   }
 
 function CrearPokemon(pokemon){
-    const cardContainer = document.createElement("div");
-    cardContainer.classList.add("card-container");
-  
     const card = document.createElement("div");
-    card.classList.add("pokemon-block");
+    card.classList.add("tarjeta");
   
     const spriteContainer = document.createElement("div");
     spriteContainer.classList.add("img-container");
