@@ -34,13 +34,18 @@ function CrearPokemon(pokemon){
     name.textContent = pokemon.name;
 
     const type = document.createElement("div");
+    const type2 = document.createElement("div");
     type.classList.add("type");
-    type.textContent = pokemon.types.toString();
+    type.classList.add("type2");
+    type.textContent = pokemon.types[0].type.name;
+    type2.textContent = pokemon.types[1] ? pokemon.types[1].type.name : pokemon.default;;
+
   
     card.appendChild(spriteContainer);
     card.appendChild(number);
     card.appendChild(name);
     card.appendChild(type);
+    card.appendChild(type2);
 
     ContenedorPokemon.appendChild(card);
   
