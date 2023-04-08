@@ -94,10 +94,17 @@ function getTypeColor(typeName) {
   return '#EE99AC';
   }}
   
-function Quitatodo(parent) {
-    while (parent.firstChild) {
-      parent.removeChild(parent.firstChild);
-    }
+//function Quitatodo(parent) {
+    //while (parent.firstChild) {
+      //parent.removeChild(parent.firstChild);
+    //}
+//}
+
+function borrarPokemons() {
+  const contenedor = document.getElementById('.Contenedor-Pokemon');
+  while (contenedor.firstChild) {
+    contenedor.firstChild.remove();
+  }
 }
 
 function modoOscuro(){
