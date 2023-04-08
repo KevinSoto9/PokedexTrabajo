@@ -28,7 +28,7 @@ function CrearPokemon(pokemon) {
 
   contenedorImagen.appendChild(imagen);
 
-  const numeros = document.createElement("spam");
+  const numeros = document.createElement("p");
   numeros.textContent = `#${pokemon.id.toString().padStart(3, 0)}`;
 
   const nombre = document.createElement("p");
@@ -92,8 +92,8 @@ function getTypeColor(typeName) {
   return '#B8B8D0';
   case 'fairy':
   return '#EE99AC';
-  }}
-  
+}};
+
 //function Quitatodo(parent) {
     //while (parent.firstChild) {
       //parent.removeChild(parent.firstChild);
@@ -101,7 +101,7 @@ function getTypeColor(typeName) {
 //}
 
 function borrarPokemons() {
-  const contenedor = document.getElementById('.Contenedor-Pokemon');
+  const contenedor = document.getElementsByClassName('Contenedor-Pokemon');
   while (contenedor.firstChild) {
     contenedor.firstChild.remove();
   }
