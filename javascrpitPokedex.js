@@ -17,40 +17,40 @@ async function fetchPokemon(id) {
 }
 
 function CrearPokemon(pokemon) {
-  const card = document.createElement("div");
-  card.classList.add("tarjeta");
+  const contenedor = document.createElement("div");
+  contenedor.classList.add("tarjeta");
 
-  const spriteContainer = document.createElement("div");
-  spriteContainer.classList.add("img-container");
+  const contenedorImagen = document.createElement("div");
+  contenedorImagen.classList.add("img-container");
 
-  const sprite = document.createElement("img");
-  sprite.src = pokemon.sprites.front_default;
+  const imagen = document.createElement("img");
+  imagen.src = pokemon.sprites.front_default;
 
-  spriteContainer.appendChild(sprite);
+  contenedorImagen.appendChild(imagen);
 
-  const number = document.createElement("p");
-  number.textContent = `#${pokemon.id.toString().padStart(3, 0)}`;
+  const numeros = document.createElement("spam");
+  numeros.textContent = `#${pokemon.id.toString().padStart(3, 0)}`;
 
-  const name = document.createElement("p");
-  name.classList.add("name");
-  name.textContent = pokemon.name;
+  const nombre = document.createElement("p");
+  nombre.classList.add("nombre");
+  nombre.textContent = pokemon.name;
 
-  const type = document.createElement("div");
-  const type2 = document.createElement("div");
-  type.classList.add("type");
-  type2.classList.add("type2");
-  type.textContent = pokemon.types[0].type.name;
-  type2.textContent = pokemon.types[1] ? pokemon.types[1].type.name : pokemon.default;
-  type.style.backgroundColor = getTypeColor(pokemon.types[0].type.name);
-  type2.style.backgroundColor = getTypeColor(pokemon.types[1] ? pokemon.types[1].type.name : pokemon.default);
+  const tipo = document.createElement("div");
+  const tipo2 = document.createElement("div");
+  tipo.classList.add("tipo");
+  tipo2.classList.add("tipo2");
+  tipo.textContent = pokemon.types[0].type.name;
+  tipo2.textContent = pokemon.types[1] ? pokemon.types[1].type.name : pokemon.default;
+  tipo.style.backgroundColor = getTypeColor(pokemon.types[0].type.name);
+  tipo2.style.backgroundColor = getTypeColor(pokemon.types[1] ? pokemon.types[1].type.name : pokemon.default);
 
-  card.appendChild(spriteContainer);
-  card.appendChild(number);
-  card.appendChild(name);
-  card.appendChild(type);
-  card.appendChild(type2);
+  contenedor.appendChild(contenedorImagen);
+  contenedor.appendChild(numeros);
+  contenedor.appendChild(nombre);
+  contenedor.appendChild(tipo);
+  contenedor.appendChild(tipo2);
 
-  ContenedorPokemon.appendChild(card);
+  ContenedorPokemon.appendChild(contenedor);
 }
 
 
