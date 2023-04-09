@@ -1,7 +1,7 @@
 const ContenedorPokemon = document.querySelector('.Contenedor-Pokemon')
 
 async function fetchPokemons() {
-  for (let i = 0; i < 152; i++) {
+  for (let i = 1; i <= 151; i++) {
     await fetchPokemon(i);
   }
 }
@@ -10,7 +10,7 @@ async function fetchPokemon(id) {
   try {
     const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
     const pokemon = await response.json();
-    CrearPokemon(pokemon); 
+    CrearPokemon(pokemon);
   } catch (error) {
     console.error(`Error al obtener los datos del pokemon con ID ${id}:`, error);
   }
@@ -40,9 +40,9 @@ function CrearPokemon(pokemon) {
   tipo.classList.add("tipo");
   tipo2.classList.add("tipo2");
   tipo.textContent = pokemon.types[0].type.name;
-  tipo2.textContent = pokemon.types[1] ? pokemon.types[1].type.name : pokemon.default;
+  tipo2.textContent = pokemon.types[1] ? pokemon.types[1].type.name : '';
   tipo.style.backgroundColor = getTypeColor(pokemon.types[0].type.name);
-  tipo2.style.backgroundColor = getTypeColor(pokemon.types[1] ? pokemon.types[1].type.name : pokemon.default);
+  tipo2.style.backgroundColor = getTypeColor(pokemon.types[1] ? pokemon.types[1].type.name : '');
 
   contenedor.appendChild(contenedorImagen);
   contenedor.appendChild(numeros);
@@ -53,63 +53,74 @@ function CrearPokemon(pokemon) {
   ContenedorPokemon.appendChild(contenedor);
 }
 
-
 function getTypeColor(typeName) {
   switch (typeName) {
-  case 'normal':
-  return '#A8A878';
-  case 'fire':
-  return '#F08030';
-  case 'water':
-  return '#6890F0';
-  case 'grass':
-  return '#78C850';
-  case 'electric':
-  return '#F8D030';
-  case 'ice':
-  return '#98D8D8';
-  case 'fighting':
-  return '#C03028';
-  case 'poison':
-  return '#A040A0';
-  case 'ground':
-  return '#E0C068';
-  case 'flying':
-  return '#A890F0';
-  case 'psychic':
-  return '#F85888';
-  case 'bug':
-  return '#A8B820';
-  case 'rock':
-  return '#B8A038';
-  case 'ghost':
-  return '#705898';
-  case 'dragon':
-  return '#7038F8';
-  case 'dark':
-  return '#705848';
-  case 'steel':
-  return '#B8B8D0';
-  case 'fairy':
-  return '#EE99AC';
-}};
-
-//function Quitatodo(parent) {
-    //while (parent.firstChild) {
-      //parent.removeChild(parent.firstChild);
-    //}
-//}
+    case 'normal':
+      return '#A8A878';
+    case 'fire':
+      return '#F08030';
+    case 'water':
+      return '#6890F0';
+    case 'grass':
+      return '#78C850';
+    case 'electric':
+      return '#F8D030';
+    case 'ice':
+      return '#98D8D8';
+    case 'fighting':
+      return '#C03028';
+    case 'poison':
+      return '#A040A0';
+    case 'ground':
+      return '#E0C068';
+    case 'flying':
+      return '#A890F0';
+    case 'psychic':
+      return '#F85888';
+    case 'bug':
+      return '#A8B820';
+    case 'rock':
+      return '#B8A038';
+    case 'ghost':
+      return '#705898';
+    case 'dragon':
+      return '#7038F8';
+    case 'dark':
+      return '#705848';
+    case 'steel':
+      return '#B8B8D0';
+    case 'fairy':
+      return '#EE99AC';
+    default:
+      return '';
+  }
+}
 
 function borrarPokemons() {
-  const contenedor = document.getElementsByClassName('Contenedor-Pokemon');
+  const contenedor = document.querySelector('.Contenedor-Pokemon');
   while (contenedor.firstChild) {
     contenedor.firstChild.remove();
   }
 }
 
-function modoOscuro(){
+function modoOscuro() {
   let main_body = document.body;
   main_body.classList.toggle("modo-oscuro");
 }
 
-fetchPokemons(1);
+fetchPokemons();
+
+const input = document.getElementById('buscador')
+// Añadir un evento de escucha al input
+input.addEventListener('input', function() {
+  const terminoBusqueda = input.value.toLowerCase() // Obtener el valor del input en minúsculas
+
+  borrarPokemons()
+ 
+  fetchPokemon(terminoBusqueda);
+
+  if (terminoBusqueda === '')
+    fetchPokemons();
+
+});
+
