@@ -93,7 +93,7 @@ body{
   cursor: pointer;
 }
 
-.type
+.tipo
 {
   padding:10px;
   border-radius: 100vmax;
@@ -102,64 +102,8 @@ body{
   margin-right: 5px;
 }
 
-.type2{
+.tipo2{
   padding: 10px;
   border-radius: 100vmax;
   margin: 5px;
 }
-
-.fuego {
-  background-color: red;
-}
-.agua {
-  background-color: blue;
-}
-.planta {
-  background-color: rgb(5, 116, 5);
-}
-.veneno{
-  background-color: blueviolet;;
-}
-.volador{
-  background-color: rgb(150, 209, 247);
-}
-.bicho{
-  background-color: olive;
-}
-.normal{
-  background-color: grey;
-}
-.tierra{
-  background-color: saddlebrown;
-}
-.electrico{
-  background-color: yellow;
-}
-.hada{
-  background-color: palevioletred;
-}
-.lucha{
-  background-color: orangered;
-}
-.psiquico{
-  background-color: deeppink;
-}
-.roca{
-  background-color: rgb(183, 193, 202);
-}
-.acero{
-  background-color: rgb(99, 131, 190);
-}
-.hielo{
-  background-color: aqua;
-}
-.dragon{
-  background-color: mediumblue;
-}
-.fantasma{
-  background-color: darkviolet;
-}
-.siniestro{
-  background-color: rgb(20, 7, 0);
-}
-  
