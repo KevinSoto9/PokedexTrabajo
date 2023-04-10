@@ -87,7 +87,7 @@ body{
   text-decoration: underline;
 }
 
-  .tarjeta {
+.tarjeta {
   border-radius: 20px;
   padding: 5px;
   box-shadow: 0 3px 15px rgba(70, 68, 68, 0.5);
@@ -107,11 +107,19 @@ body{
   text-transform: capitalize;
 }
 
+.tipo:hover {
+  box-shadow: 0 3px 15px rgba(70, 68, 68, 0.5);
+}
+
 .tipo2{
   padding: 10px;
   border-radius: 100vmax;
   margin: 5px;
   text-transform: capitalize;
+}
+
+.tipo2:hover {
+  box-shadow: 0 3px 15px rgba(70, 68, 68, 0.5);
 }
 
 #buscar{
