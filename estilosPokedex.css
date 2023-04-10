@@ -79,8 +79,13 @@ body{
   margin-top: 40px;
 }
 
-  .name {
+  .nombre {
     text-transform: capitalize;
+}
+
+.nombre:hover {
+  color: rgb(33, 161, 184);
+  text-decoration: underline;
 }
 
   .tarjeta {
@@ -100,12 +105,14 @@ body{
   margin-bottom: 10px;
   margin-left: 5px;
   margin-right: 5px;
+  text-transform: capitalize;
 }
 
 .tipo2{
   padding: 10px;
   border-radius: 100vmax;
   margin: 5px;
+  text-transform: capitalize;
 }
 
 #buscar{
