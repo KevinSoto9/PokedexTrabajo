@@ -124,3 +124,5 @@ input.addEventListener('input', function() {
 
 });
 
+let a = document.createElement("a");
+a.setAttribute("href", "PokedexIndividual");
