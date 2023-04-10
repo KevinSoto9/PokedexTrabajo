@@ -84,7 +84,6 @@ body{
 }
 
 .nombre:hover {
-  color: rgb(33, 161, 184);
   text-decoration: underline;
 }
 
