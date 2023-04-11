@@ -151,3 +151,7 @@ if (modoActual === 'dark')
     
 modoClaro.addEventListener('click', establecerModoClaro);
 modoOscuro.addEventListener('click', establecerModoOscuro);
+
+ContenedorPokemon.addEventListener('click', () => {
+  window.location.href='PokedexIndividual.html?id=${pokemon.id}';
+});
