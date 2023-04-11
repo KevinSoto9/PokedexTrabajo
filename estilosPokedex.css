@@ -40,9 +40,11 @@ header {
 }
 
 .contenedor {
+  display: flex;
+  align-items: center;
   border-radius: 20px;
-  margin-left: 10px;
-  margin-right: 10px;
+  margin-left: 15%;
+  margin-right: 15%;
   width: auto;
   height: 100px;
   padding: 40px;
@@ -104,14 +106,12 @@ header {
   font-size: 16px;
 }
 
-#buscar {
-  margin-right: 50px;
-}
-
 input[type="text"] {
+  flex: 0 0 auto;
   border-radius: 6px;
+  margin-right: 5px;
   height: 25px;
-  width: 50%;
+  width: 25%;
   padding: 5px;
   -webkit-text-stroke: 1px rgb(0, 0, 0);
 }
@@ -122,8 +122,14 @@ input[type="text"]:hover {
 
 button {
   border: none;
+  margin-left: 5px;
   cursor: pointer;
   background-color: transparent;
+}
+
+.botones {
+  display: flex;
+  margin-left: auto;
 }
 
 /* Responsivo */
