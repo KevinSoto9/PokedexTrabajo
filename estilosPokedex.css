@@ -107,7 +107,7 @@ button {
 }
 
 .botones {
-  position: fixed;
+  position: absolute;
   right: 0;
   top: 9%;
   margin-right: 35px;
