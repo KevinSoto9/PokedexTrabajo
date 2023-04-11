@@ -62,6 +62,10 @@ header {
   margin-top: 40px;
 }
 
+.Contenedor-Pokemon:hover {
+  cursor: pointer;
+}
+
 .nombre {
   text-transform: capitalize;
   font-size: 22px;
