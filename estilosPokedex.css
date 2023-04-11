@@ -22,16 +22,31 @@ body.light {
 body.dark {
   background-color: #2b2a2a;
   color: #fff;
+  -webkit-text-stroke: 1px rgb(0, 0, 0);
 }
 
 header {
   font-family: pokemon;
   font-size: 40px;
-  color: yellow;
+  color: rgb(255,215,0);
   -webkit-text-stroke: 2px blue;
   text-shadow: 2px 2px 4px #3f4cc0;
   letter-spacing: 2px;
   text-align: center;
+}
+
+.btn {
+  float: right;
+}
+
+.contenedor {
+  border-radius: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: auto;
+  height: 100px;
+  padding: 40px;
+  background-color: rgb(190, 62, 62);
 }
 
 .Contenedor-Pokemon {
@@ -47,10 +62,14 @@ header {
   margin-top: 40px;
 }
 
+.Contenedor-Pokemon:hover {
+  cursor: pointer;
+}
+
 .nombre {
-    text-transform: capitalize;
-    font-size: 22px;
-    letter-spacing: 1px;
+  text-transform: capitalize;
+  font-size: 22px;
+  letter-spacing: 1px;
 }
 
 .nombre:hover {
@@ -67,10 +86,9 @@ header {
   cursor: pointer;
 }
 
-.tipo
-{
-  padding:10px;
-  border-radius: 10px;
+.tipo {
+  padding: 10px;
+  border-radius: 50px;
   margin-bottom: 10px;
   margin-left: 5px;
   margin-right: 5px;
@@ -78,25 +96,24 @@ header {
   font-size: 16px;
 }
 
-.tipo2{
+.tipo2 {
   padding: 10px;
-  border-radius: 10px;
+  border-radius: 50px;
   margin: 5px;
   text-transform: capitalize;
   font-size: 16px;
 }
 
-#buscar{
+#buscar {
   margin-right: 50px;
 }
 
-input[type="text"]{
-  position: fixed;
-  left:0;
+input[type="text"] {
   border-radius: 6px;
-  height: 20px;
+  height: 25px;
+  width: 50%;
   padding: 5px;
-  margin-left: 70px;
+  -webkit-text-stroke: 1px rgb(0, 0, 0);
 }
 
 input[type="text"]:hover {
@@ -109,9 +126,33 @@ button {
   background-color: transparent;
 }
 
-.botones {
-  position: fixed;
-  right: 0;
-  top: 9%;
-  margin-right: 35px;
+/* Responsivo */
+
+@media screen and (max-width: 768px) {
+  header {
+    font-size: 30px;
+  }
+  
+  .Contenedor-Pokemon {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    width: 90%;
+  }
+  
+  .tipo,
+  .tipo2 {
+    font-size: 14px;
+  }
+  
+  #buscar {
+    margin-right: 20px;
+  }
+  
+  input[type="text"] {
+    margin-left: 20px;
+  }
+  
+  .botones {
+    margin-right: 20px;
+  }
 }
