@@ -42,13 +42,8 @@ function CrearPokemon(pokemon) {
   const contenedor = document.createElement("div");
   contenedor.classList.add("tarjeta");
 
-  const contenedorImagen = document.createElement("div");
-  contenedorImagen.classList.add("img-container");
-
   const imagen = document.createElement("img");
   imagen.src = pokemon.sprites.front_default;
-
-  contenedorImagen.appendChild(imagen);
 
   const numeros = document.createElement("p");
   numeros.textContent = `#${pokemon.id.toString().padStart(3, 0)}`;
@@ -66,7 +61,7 @@ function CrearPokemon(pokemon) {
   tipo.style.backgroundColor = getTypeColor(pokemon.types[0].type.name);
   tipo2.style.backgroundColor = getTypeColor(pokemon.types[1] ? pokemon.types[1].type.name : '');
 
-  contenedor.appendChild(contenedorImagen);
+  contenedor.appendChild(imagen);
   contenedor.appendChild(numeros);
   contenedor.appendChild(nombre);
   contenedor.appendChild(tipo);
@@ -123,19 +118,36 @@ function borrarPokemons() {
   }
 }
 
-function modoOscuro() {
-  let main_body = document.body;
-  main_body.classList.toggle("modo-oscuro");
-}
-
 input.addEventListener('input', function() {
-  const terminoBusqueda = input.value.toLowerCase();
+  const busqueda = input.value.toLowerCase();
 
   borrarPokemons();
 
-  const pokemonsFiltrados = listaPokemons.filter(pokemon => pokemon.name.includes(terminoBusqueda));
+  const pokemonsFiltrados = listaPokemons.filter(pokemon => pokemon.name.includes(busqueda));
 
   pokemonsFiltrados.forEach(pokemon => {
     CrearPokemon(pokemon);
   });
 });
+
+const modoClaro = document.getElementById('modoClaro');
+const modoOscuro = document.getElementById('modoOscuro');
+let modoActual = localStorage.getItem('modo');
+    
+function establecerModoClaro() {
+  document.body.classList.remove('dark');
+  document.body.classList.add('light');
+  localStorage.setItem('modo', 'light');
+}
+    
+function establecerModoOscuro() {
+  document.body.classList.remove('light');
+  document.body.classList.add('dark');
+  localStorage.setItem('modo', 'dark');
+}
+    
+if (modoActual === 'dark')
+  establecerModoOscuro();
+    
+modoClaro.addEventListener('click', establecerModoClaro);
+modoOscuro.addEventListener('click', establecerModoOscuro);
