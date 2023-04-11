@@ -48,9 +48,9 @@ header {
 }
 
 .nombre {
-    text-transform: capitalize;
-    font-size: 22px;
-    letter-spacing: 1px;
+  text-transform: capitalize;
+  font-size: 22px;
+  letter-spacing: 1px;
 }
 
 .nombre:hover {
@@ -67,10 +67,9 @@ header {
   cursor: pointer;
 }
 
-.tipo
-{
-  padding:10px;
-  border-radius: 10px;
+.tipo {
+  padding: 10px;
+  border-radius: 50px;
   margin-bottom: 10px;
   margin-left: 5px;
   margin-right: 5px;
@@ -78,21 +77,19 @@ header {
   font-size: 16px;
 }
 
-.tipo2{
+.tipo2 {
   padding: 10px;
-  border-radius: 10px;
+  border-radius: 50px;
   margin: 5px;
   text-transform: capitalize;
   font-size: 16px;
 }
 
-#buscar{
+#buscar {
   margin-right: 50px;
 }
 
-input[type="text"]{
-  position: fixed;
-  left:0;
+input[type="text"] {
   border-radius: 6px;
   height: 20px;
   padding: 5px;
@@ -114,4 +111,35 @@ button {
   right: 0;
   top: 9%;
   margin-right: 35px;
+}
+
+/* Responsivo */
+
+@media screen and (max-width: 768px) {
+  header {
+    font-size: 30px;
+  }
+  
+  .Contenedor-Pokemon {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    width: 90%;
+  }
+  
+  .tipo,
+  .tipo2 {
+    font-size: 14px;
+  }
+  
+  #buscar {
+    margin-right: 20px;
+  }
+  
+  input[type="text"] {
+    margin-left: 20px;
+  }
+  
+  .botones {
+    margin-right: 20px;
+  }
 }
