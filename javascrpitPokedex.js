@@ -61,6 +61,10 @@ function CrearPokemon(pokemon) {
   tipo.style.backgroundColor = getTypeColor(pokemon.types[0].type.name);
   tipo2.style.backgroundColor = getTypeColor(pokemon.types[1] ? pokemon.types[1].type.name : '');
 
+  if (!pokemon.types[1]) {
+    tipo2.style.border = 'none';
+  }
+
   contenedor.appendChild(imagen);
   contenedor.appendChild(numeros);
   contenedor.appendChild(nombre);
