@@ -1,0 +1,52 @@
+@font-face {
+    font-family: pokemon;
+    src: url(PokemonSolid.ttf);
+}
+  
+@font-face {
+    font-family: pokemon2;
+    src: url(PokemonHollow.ttf);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+header {
+    font-family: pokemon;
+    background-color: rgb(196, 101, 101);
+    font-size: 45px;
+    color: rgb(255,215,0);
+    -webkit-text-stroke: 2px blue;
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+a.pokedex {
+    color: rgb(255,215,0);
+    -webkit-text-stroke: 2px blue;
+    text-decoration: none;
+}
+  
+a.pokedex:hover {
+    text-shadow: 2px 2px 4px #3f4cc0;
+}
+
+button {
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+body.light {
+    background-color: #e5ebec;
+    color: #000;
+}
+  
+body.dark {
+    background-color: #2b2a2a;
+    color: #fff;
+    -webkit-text-stroke: 1px rgb(0, 0, 0);
+}
