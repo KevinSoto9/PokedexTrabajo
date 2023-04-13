@@ -1,7 +1,6 @@
 const ContenedorPokemon = document.querySelector('.Contenedor-Pokemon');
 const listaPokemons = [];
 const input = document.getElementById('buscador');
-const URL = `https://pokeapi.co/api/v2/pokemon/`;
 
 async function fetchPokemons() {
   for (let i = 1; i <= 151; i++) {
@@ -10,7 +9,7 @@ async function fetchPokemons() {
 }
 
 async function fetchPokemon(id) {
-    const response = await fetch(URL + id);
+    const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
     const pokemon = await response.json();
     listaPokemons.push(pokemon);
     CrearPokemon(pokemon);
@@ -44,11 +43,10 @@ function CrearPokemon(pokemon) {
   contenedor.classList.add("tarjeta");
 
   const imagen = document.createElement("img");
-  imagen.classList.add("imagen");
+  imagen.classList.add("imagen1")
   imagen.src = pokemon.sprites.front_default;
 
   const numeros = document.createElement("p");
-  numeros.classList.add("numeros");
   numeros.textContent = `#${pokemon.id.toString().padStart(3, 0)}`;
 
   const nombre = document.createElement("p");
@@ -159,6 +157,7 @@ if (modoActual === 'dark')
 modoClaro.addEventListener('click', establecerModoClaro);
 modoOscuro.addEventListener('click', establecerModoOscuro);
 
+
 ContenedorPokemon.addEventListener('click', () => {
-  window.location.href='PokedexIndividual.html?id=${pokemon.id}';
+  window.location.href=`PokedexIndividual.html?id=${pokemon.id}`;
 });
