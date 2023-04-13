@@ -26,7 +26,7 @@ body.dark {
 }
 
 header {
-  font-family: pokemon;
+   font-family: pokemon;
   background-color: rgb(196, 101, 101);
   font-size: 45px;
   color: rgb(255,215,0);
@@ -52,8 +52,9 @@ a.pokedex:hover {
 .contenedor {
   display: flex;
   align-items: center;
+  justify-content: center;
   width: auto;
-  height: 90px;
+  height: 100px;
   padding: 40px;
   background-color: rgb(224, 212, 212);
 }
@@ -71,23 +72,35 @@ a.pokedex:hover {
   margin-top: 40px;
 }
 
+.Contenedor-PokemonIndividual {
+  font-family: pokemon;
+  display: grid;
+  text-align: center;
+  gap: 40px;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 40px;
+  margin-top: 40px;
+}
+
 .Contenedor-Pokemon:hover {
   cursor: pointer;
 }
 
-.numeros {
-  font-size: 22px;
-}
-
 .nombre {
   text-transform: capitalize;
-  font-size: 22px;
-  letter-spacing: 1px;
+  font-size: 32px;
+  letter-spacing: 2px;
 }
 
 .imagen {
-  width: 220px;
-  height: 220px;
+  width: 250px;
+  height: 250px;
+}
+
+.nombre:hover {
+  text-decoration: underline;
 }
 
 .tarjeta {
@@ -100,17 +113,31 @@ a.pokedex:hover {
   cursor: pointer;
 }
 
+.tarjeta2 {
+  border-radius: 20px;
+  padding: 5px;
+  box-shadow: 0 3px 15px rgba(63, 61, 61, 0.5);
+  display: grid;
+  grid-template-columns: auto auto ;
+  grid-template-rows: auto auto;
+  gap: 10px;
+}
+
+.tarjeta2 :hover {
+  cursor: pointer;
+}
+
 .tipo {
   padding: 10px;
   color: white;
   -webkit-text-stroke: 1px rgb(0, 0, 0);
   border: 1px solid black;
-  border-radius: 50px;
+  border-radius: 20px;
   margin-bottom: 10px;
   margin-left: 5px;
   margin-right: 5px;
   text-transform: capitalize;
-  font-size: 16px;
+  font-size: 20px;
 }
 
 .tipo2 {
@@ -118,10 +145,10 @@ a.pokedex:hover {
   color: white;
   -webkit-text-stroke: 1px rgb(0, 0, 0);
   border: 1px solid black;
-  border-radius: 50px;
+  border-radius: 20px;
   margin: 5px;
   text-transform: capitalize;
-  font-size: 16px;
+  font-size: 20px;
 }
 
 input[type="text"] {
@@ -148,6 +175,11 @@ button {
 .botones {
   display: flex;
   margin-left: auto;
+}
+
+.numero {
+  font-size: 30px;
+  letter-spacing: 1px;
 }
 
 /* Responsivo */
