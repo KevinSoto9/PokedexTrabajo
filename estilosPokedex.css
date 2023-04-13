@@ -53,7 +53,7 @@ a.pokedex:hover {
   display: flex;
   align-items: center;
   width: auto;
-  height: 100px;
+  height: 90px;
   padding: 40px;
   background-color: rgb(224, 212, 212);
 }
@@ -75,14 +75,19 @@ a.pokedex:hover {
   cursor: pointer;
 }
 
+.numeros {
+  font-size: 22px;
+}
+
 .nombre {
   text-transform: capitalize;
   font-size: 22px;
   letter-spacing: 1px;
 }
 
-.nombre:hover {
-  text-decoration: underline;
+.imagen {
+  width: 220px;
+  height: 220px;
 }
 
 .tarjeta {
