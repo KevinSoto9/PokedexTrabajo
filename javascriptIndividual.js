@@ -1,16 +1,17 @@
 const ContenedorPokemonIndividual = document.querySelector('.Contenedor-PokemonIndividual');
 const listaPokemons = [];
 const input = document.getElementById('buscador');
-const URL = `https://pokeapi.co/api/v2/pokemon/`;
+
+
 
 async function fetchPokemon(id) {
-    const response = await fetch(URL + id);
+    const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
     const pokemon = await response.json();
     listaPokemons.push(pokemon);
     CrearPokemon(pokemon);
 }
 
-fetchPokemon(4);
+fetchPokemon(37);
 
 const tiposEspañol = {
   normal: "normal",
@@ -44,7 +45,7 @@ function CrearPokemon(pokemon) {
   info.classList.add("info")
 
   const imagen = document.createElement("img");
-  imagen.classList.add("imagen");
+  imagen.classList.add("imagen2");
   imagen.src = pokemon.sprites.other['official-artwork'].front_default;
 
   const numeros = document.createElement("p");
@@ -59,8 +60,8 @@ function CrearPokemon(pokemon) {
   tipos.classList.add("tipos")
   const tipo = document.createElement("div");
   const tipo2 = document.createElement("div");
-  tipo.classList.add("tipo");
-  tipo2.classList.add("tipo2");
+  tipo.classList.add("tipoi");
+  tipo2.classList.add("tipoi2");
   tipo.textContent = tiposEspañol[pokemon.types[0].type.name];
   tipo2.textContent = tiposEspañol[pokemon.types[1] ? pokemon.types[1].type.name : ''];
   tipo.style.backgroundColor = getTypeColor(pokemon.types[0].type.name);
@@ -104,7 +105,7 @@ function CrearPokemon(pokemon) {
   const hpBarra = document.createElement("progress");
   hpLabel.textContent = `HP: `;
   hp.classList.add("hp")
-  hpnumero.textContent = pokemon.stats[0].base_stat;
+  hpnumero.textContent = pokemon.stats[0].base_stat + " / 255";
   hpBarra.max = '200';
   hpBarra.classList.add("barra");
   hpBarra.value = `${pokemon.stats[0].base_stat}`;
@@ -119,7 +120,7 @@ function CrearPokemon(pokemon) {
   const ataqueBarra = document.createElement("progress");
   ataqueLabel.textContent = `Ataque: `;
   ataque.classList.add("ataque")
-  ataquenumero.textContent = pokemon.stats[1].base_stat;
+  ataquenumero.textContent = pokemon.stats[1].base_stat + " / 255";
   ataqueBarra.max = '200';
   ataqueBarra.classList.add("barra");
   ataqueBarra.value = `${pokemon.stats[1].base_stat}`;
@@ -134,7 +135,7 @@ function CrearPokemon(pokemon) {
   const defensaBarra = document.createElement("progress");
   defensaLabel.textContent = `Defensa: `;
   defensa.classList.add("defensa")
-  defensanumero.textContent = pokemon.stats[2].base_stat
+  defensanumero.textContent = pokemon.stats[2].base_stat + " / 255";
   defensaBarra.classList.add("barra");
   defensaBarra.max = '200';
   defensaBarra.value = `${pokemon.stats[2].base_stat}`;
@@ -149,7 +150,7 @@ function CrearPokemon(pokemon) {
   const ataqueEspecialBarra = document.createElement("progress");
   ataqueEspecialLabel.textContent = `Ataque Especial: `;
   ataqueEspecial.classList.add("ataqueEspecial");
-  ataqueEspecialNumero.textContent = pokemon.stats[3].base_stat;
+  ataqueEspecialNumero.textContent = pokemon.stats[3].base_stat + " / 255";
   ataqueEspecialBarra.classList.add("barra");
   ataqueEspecialBarra.max = '200';
   ataqueEspecialBarra.value = `${pokemon.stats[3].base_stat}`;
@@ -164,7 +165,7 @@ function CrearPokemon(pokemon) {
   const defensaEspecialBarra = document.createElement("progress");
   defensaEspecialLabel.textContent = `Defensa Especial: `;
   defensaEspecial.classList.add("defensaEspecial")
-  defensaEspecialNumero.textContent = pokemon.stats[4].base_stat;
+  defensaEspecialNumero.textContent = pokemon.stats[4].base_stat + " / 255";
   defensaEspecialBarra.max = '200';
   defensaEspecialBarra.classList.add("barra");
   defensaEspecialBarra.value = `${pokemon.stats[4].base_stat}`;
@@ -179,7 +180,7 @@ function CrearPokemon(pokemon) {
   const velocidadBarra = document.createElement("progress");
   velocidadLabel.textContent = `Velocidad: `;
   velocidad.classList.add("velocidad");
-  velocidadNumero.textContent = pokemon.stats[5].base_stat;
+  velocidadNumero.textContent = pokemon.stats[5].base_stat + " / 255";
   velocidadBarra.max = '200';
   velocidadBarra.classList.add("barra");
   velocidadBarra.value = `${pokemon.stats[5].base_stat}`;
@@ -199,6 +200,18 @@ function CrearPokemon(pokemon) {
 
   ContenedorPokemonIndividual.appendChild(contenedor);
 
+
+   if (!pokemon.types[1]) {
+    tipo2.style.border = 'none';
+  }
+
+  imagen.addEventListener("mouseover",function(){
+    imagen.src = pokemon.sprites.other['official-artwork'].front_shiny
+  })
+
+  imagen.addEventListener("mouseout",function(){
+    imagen.src = pokemon.sprites.other['official-artwork'].front_default;
+  })
 }
 
 function getTypeColor(typeName) {
