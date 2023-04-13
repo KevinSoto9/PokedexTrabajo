@@ -1,7 +1,7 @@
 const ContenedorPokemon = document.querySelector('.Contenedor-Pokemon');
 const listaPokemons = [];
 const input = document.getElementById('buscador');
-const URL = `https://pokeapi.co/api/v2/pokemon/`;
+
 
 async function fetchPokemons() {
   for (let i = 1; i <= 151; i++) {
@@ -10,7 +10,7 @@ async function fetchPokemons() {
 }
 
 async function fetchPokemon(id) {
-    const response = await fetch(URL + id);
+    const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
     const pokemon = await response.json();
     listaPokemons.push(pokemon);
     CrearPokemon(pokemon);
@@ -18,7 +18,7 @@ async function fetchPokemon(id) {
 
 fetchPokemons();
 
-const tiposEspañol = {
+const tiposEspanol = {
   normal: "normal",
   fighting: "lucha",
   flying: "volador",
@@ -44,23 +44,24 @@ function CrearPokemon(pokemon) {
   contenedor.classList.add("tarjeta");
 
   const imagen = document.createElement("img");
-  imagen.classList.add("imagen")
+  imagen.classList.add("imagen1")
   imagen.src = pokemon.sprites.front_default;
 
   const numeros = document.createElement("p");
   numeros.classList.add("numero");
   numeros.textContent = `#${pokemon.id.toString().padStart(3, 0)}`;
 
-  const nombre = document.createElement("p");
+  const nombre = document.createElement("a");
   nombre.classList.add("nombre");
   nombre.textContent = pokemon.name;
+  nombre.href = `PokedexIndividual.html?id=${pokemon.id}`;
 
   const tipo = document.createElement("div");
   const tipo2 = document.createElement("div");
   tipo.classList.add("tipo");
   tipo2.classList.add("tipo2");
-  tipo.textContent = tiposEspañol[pokemon.types[0].type.name];
-  tipo2.textContent = tiposEspañol[pokemon.types[1] ? pokemon.types[1].type.name : ''];
+  tipo.textContent = tiposEspanol[pokemon.types[0].type.name];
+  tipo2.textContent = tiposEspanol[pokemon.types[1] ? pokemon.types[1].type.name : ''];
   tipo.style.backgroundColor = getTypeColor(pokemon.types[0].type.name);
   tipo2.style.backgroundColor = getTypeColor(pokemon.types[1] ? pokemon.types[1].type.name : '');
 
@@ -75,6 +76,14 @@ function CrearPokemon(pokemon) {
   contenedor.appendChild(tipo2);
 
   ContenedorPokemon.appendChild(contenedor);
+
+  imagen.addEventListener("mouseover",function(){
+    imagen.src = pokemon.sprites.front_shiny
+  })
+
+  imagen.addEventListener("mouseout",function(){
+    imagen.src = pokemon.sprites.front_default;
+  })
 }
 
 function getTypeColor(typeName) {
@@ -158,8 +167,3 @@ if (modoActual === 'dark')
     
 modoClaro.addEventListener('click', establecerModoClaro);
 modoOscuro.addEventListener('click', establecerModoOscuro);
-
-
-ContenedorPokemon.addEventListener('click', () => {
-  window.location.href='PokedexIndividual.html?id=${pokemon.id}';
-});
