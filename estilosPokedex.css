@@ -80,6 +80,8 @@ a.pokedex:hover {
   text-transform: capitalize;
   font-size: 22px;
   letter-spacing: 1px;
+  text-decoration: none;
+  color: #000;
 }
 
 .nombre:hover {
@@ -141,6 +143,7 @@ button {
   cursor: pointer;
   background-color: transparent;
 }
+
 
 .botones {
   display: flex;
