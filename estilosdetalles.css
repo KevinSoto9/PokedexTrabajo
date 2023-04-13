@@ -34,23 +34,49 @@ a.pokedex:hover {
     text-shadow: 2px 2px 4px #3f4cc0;
 }
 
+input[type="text"] {
+    flex: 0 0 auto;
+    border-radius: 6px;
+    margin-right: 5px;
+    height: 25px;
+    width: 25%;
+    padding: 5px;
+    -webkit-text-stroke: 1px rgb(0, 0, 0);
+}
+  
+input[type="text"]:hover {
+    box-shadow: 0 3px 15px rgba(38, 60, 180, 0.5);
+}
+
 button {
     border: none;
+    margin-left: 5px;
     cursor: pointer;
     background-color: transparent;
+}
+  
+  .botones {
+    display: flex;
+    margin-left: auto;
 }
 
 body.light {
     background-color: #e5ebec;
     color: #000;
+    font-family: pokemon;
 }
   
 body.dark {
     background-color: #2b2a2a;
     color: #fff;
     -webkit-text-stroke: 1px rgb(0, 0, 0);
+    font-family: pokemon;
 }
 
+.btn {
+    float: right;
+}
+  
 .contenedor {
     display: flex;
     align-items: center;
@@ -59,4 +85,157 @@ body.dark {
     height: 100px;
     padding: 40px;
     background-color: rgb(224, 212, 212);
+}
+
+.estadistica {
+    display: flex;
+    align-items: center;
+    text-align: left;
+}
+  
+.nombre-estadistica {
+    flex-shrink: 0;
+    width: 100px;
+    text-align: left;
+    margin-right: 10px;
+}
+  
+.barra {
+    flex-grow: 1;
+    justify-content: left;
+    height: 15px;
+    background-color: #3db341;
+    margin-top: 5px;
+    border: 1px solid #000;
+    border-radius: 2px;
+    position: relative;
+    max-width: 255px;
+}
+  
+.altura{
+    display: flex;
+    align-items: center;
+    justify-content:space-evenly
+}
+  
+.peso{
+    display: flex;
+    align-items: center;
+    justify-content:space-evenly
+}
+  
+.hp{
+    display: flex;
+    align-items: center;
+    justify-content:space-evenly
+}
+  
+.ataque{
+    display: flex;
+    align-items: center;
+    justify-content:space-evenly
+}
+  
+.defensa{
+    display: flex;
+    text-align: left;
+    justify-content:space-evenly
+}
+  
+  
+.ataqueEspecial{
+    display: flex;
+    align-items: center;
+    justify-content:space-evenly
+}
+  
+.defensaEspecial{
+    display: flex;
+    align-items: center;
+    justify-content:space-evenly
+}
+  
+.velocidad{
+    display: flex;
+    align-items: center;
+    justify-content:space-evenly
+}
+  
+.imagen{
+    width: 300px;
+    height: 300px;
+    margin-left: 40%;
+}
+  
+.stats{
+    grid-column-start: 2;
+    grid-column-end: 3;
+}
+
+.presentacion{
+    display: flex;
+    align-items: center;
+    justify-content:center;
+}
+  
+.tipos{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tipo {
+    padding: 10px;
+    color: white;
+    -webkit-text-stroke: 1px rgb(0, 0, 0);
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 20px;
+    margin-bottom: 10px;
+    margin-left: 5px;
+    margin-right: 5px;
+    text-transform: capitalize;
+    font-size: 20px;
+    width: 120px;
+  }
+  
+  .tipo2 {
+    padding: 10px;
+    color: white;
+    -webkit-text-stroke: 1px rgb(0, 0, 0);
+    text-align: center;
+    border: 1px solid black;
+    border-radius: 20px;
+    margin: 5px;
+    text-transform: capitalize;
+    font-size: 20px;
+    width: 120px;
+  }
+  
+.info{
+    grid-column-start: 1;
+    grid-column-end: 2;
+    justify-content: center;
+}
+  
+.contenedor2{ 
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: auto;
+      height: 100px;
+      padding: 40px;
+      background-color: rgb(224, 212, 212);
+}
+
+.nombre {
+    font-size: 50px;
+    text-transform: capitalize;
+    letter-spacing: 1px;
+    margin-left: 50px;
+}
+
+.numero {
+    font-size: 50px;
+    letter-spacing: 2px;
 }
