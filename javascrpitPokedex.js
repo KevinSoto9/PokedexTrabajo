@@ -44,11 +44,11 @@ function CrearPokemon(pokemon) {
   contenedor.classList.add("tarjeta");
 
   const imagen = document.createElement("img");
-  imagen.classList.add("imagen");
+  imagen.classList.add("imagen")
   imagen.src = pokemon.sprites.front_default;
 
   const numeros = document.createElement("p");
-  numeros.classList.add("numeros");
+  numeros.classList.add("numero");
   numeros.textContent = `#${pokemon.id.toString().padStart(3, 0)}`;
 
   const nombre = document.createElement("p");
@@ -158,6 +158,7 @@ if (modoActual === 'dark')
     
 modoClaro.addEventListener('click', establecerModoClaro);
 modoOscuro.addEventListener('click', establecerModoOscuro);
+
 
 ContenedorPokemon.addEventListener('click', () => {
   window.location.href='PokedexIndividual.html?id=${pokemon.id}';
