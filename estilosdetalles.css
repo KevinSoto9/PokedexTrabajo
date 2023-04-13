@@ -50,3 +50,13 @@ body.dark {
     color: #fff;
     -webkit-text-stroke: 1px rgb(0, 0, 0);
 }
+
+.contenedor {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    height: 100px;
+    padding: 40px;
+    background-color: rgb(224, 212, 212);
+}
