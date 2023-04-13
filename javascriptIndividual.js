@@ -8,11 +8,25 @@ async function fetchPokemon(id) {
   CrearPokemon(pokemon);
 }
 
+async function fetchEspecie(id) {
+  const response = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${id}`);
+  const pokemon = await response.json();
+  CrearEspecie(pokemon);
+}
+
+async function fetchImagen(id) {
+  const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
+  const pokemon = await response.json();
+  CrearImagen(pokemon);
+}
+
+
 async function startDetails() {
   const response = window.location.search;
   const pokemon = new URLSearchParams(response);
   const a = pokemon.get('id');
   await fetchPokemon(a);
+  await fetchEspecie(a);
 }
 
 const tiposEspanol = {
@@ -35,6 +49,68 @@ const tiposEspanol = {
   dark: "siniestro",
   fairy: "hada",
 }
+
+async function CrearEspecie(pokemonsolo){
+  const url = document.createElement("p")
+  url.textContent = pokemonsolo.evolution_chain.url
+  
+  const response2 = await fetch(url.textContent);
+  const pokemon2 = await response2.json();
+  CrearEvolucion(pokemon2);
+}
+
+function CrearImagen(pokemonsolo){
+
+  const imagen1 = document.createElement("img");
+  imagen1.classList.add("imagen2");
+  imagen1.src = pokemonsolo.sprites.other['official-artwork'].front_default;
+
+  ContenedorPokemonIndividual.appendChild(imagen1);
+}
+
+function CrearEvolucion(pokemonsolo){
+  const contenedorEvo = document.createElement("div");
+  contenedorEvo.classList.add("evo")
+  const evo1 = document.createElement("p");
+  const evo2 = document.createElement("p");
+  const evo25 = document.createElement("p")
+  const evo3 = document.createElement("p");
+  const nombrePokemon = document.createElement("p");
+  nombrePokemon.textContent = pokemonsolo.chain.species.name;
+  evo1.textContent = pokemonsolo.chain.evolves_to[0] ? pokemonsolo.chain.evolves_to[0].species.name : null ;
+  evo2.textContent = pokemonsolo.chain.evolves_to[1] ? pokemonsolo.chain.evolves_to[1].species.name : null ;
+  evo25.textContent = pokemonsolo.chain.evolves_to[2] ? pokemonsolo.chain.evolves_to[2].species.name : null ;
+  evo3.textContent = pokemonsolo.chain.evolves_to[0].evolves_to[0] ? pokemonsolo.chain.evolves_to[0].evolves_to[0].species.name : null ;
+
+
+  fetchImagen(nombrePokemon.textContent)
+  fetchImagen(evo1.textContent)
+  fetchImagen(evo2.textContent)
+  fetchImagen(evo25.textContent)
+  fetchImagen(evo3.textContent)
+
+  contenedorEvo.appendChild(nombrePokemon)
+  contenedorEvo.appendChild(evo1);
+  contenedorEvo.appendChild(evo2);
+  contenedorEvo.appendChild(evo25);
+  contenedorEvo.appendChild(evo3);
+
+ContenedorPokemonIndividual.appendChild(contenedorEvo)
+
+ if(evo25 == null){
+  const a = document.getElementsByClassName("evo");
+  a.thirdChild.remove()
+ }
+
+ const ayuda = document.createElement("p")
+ ayuda.textContent = pokemonsolo.chain.id
+ 
+ const urlayuda = fetch(`https://pokeapi.co/api/v2/pokemon/${ayuda}`);
+ const pokemon3 = urlayuda.json();
+ CrearImagen(pokemon3)
+
+}
+
 
 function CrearPokemon(pokemonsolo) {
   const contenedor = document.createElement("div");
@@ -257,11 +333,6 @@ function getTypeColor(typeName) {
   }
 }
 
-function borrarPokemons() {
-  const contenedoxr = document.querySelector('.Contenedor-PokemonIndividual');
-   contenedor.firstChild.remove();
-  
-}
 
 const modoClaro = document.getElementById('modoClaro');
 const modoOscuro = document.getElementById('modoOscuro');

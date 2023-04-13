@@ -35,6 +35,8 @@ header {
   text-align: center;
 }
 
+
+
 a.pokedex {
   color: rgb(255,215,0);
   -webkit-text-stroke: 2px blue;
@@ -81,7 +83,7 @@ a.pokedex:hover {
   font-size: 22px;
   letter-spacing: 1px;
   text-decoration: none;
-  color: #000;
+  color:black ;
 }
 
 .nombre:hover {
@@ -154,7 +156,7 @@ button {
   width: 250px;
   height: 250px;
 }
-/* Responsivo */
+
 
 @media screen and (max-width: 768px) {
   header {
