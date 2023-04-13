@@ -18,7 +18,7 @@ async function fetchPokemon(id) {
 
 fetchPokemons();
 
-const tiposEspañol = {
+const tiposEspanol = {
   normal: "normal",
   fighting: "lucha",
   flying: "volador",
@@ -48,6 +48,7 @@ function CrearPokemon(pokemon) {
   imagen.src = pokemon.sprites.front_default;
 
   const numeros = document.createElement("p");
+  numeros.classList.add("numero");
   numeros.textContent = `#${pokemon.id.toString().padStart(3, 0)}`;
 
   const nombre = document.createElement("a");
@@ -59,8 +60,8 @@ function CrearPokemon(pokemon) {
   const tipo2 = document.createElement("div");
   tipo.classList.add("tipo");
   tipo2.classList.add("tipo2");
-  tipo.textContent = tiposEspañol[pokemon.types[0].type.name];
-  tipo2.textContent = tiposEspañol[pokemon.types[1] ? pokemon.types[1].type.name : ''];
+  tipo.textContent = tiposEspanol[pokemon.types[0].type.name];
+  tipo2.textContent = tiposEspanol[pokemon.types[1] ? pokemon.types[1].type.name : ''];
   tipo.style.backgroundColor = getTypeColor(pokemon.types[0].type.name);
   tipo2.style.backgroundColor = getTypeColor(pokemon.types[1] ? pokemon.types[1].type.name : '');
 
@@ -166,7 +167,3 @@ if (modoActual === 'dark')
     
 modoClaro.addEventListener('click', establecerModoClaro);
 modoOscuro.addEventListener('click', establecerModoOscuro);
-
-ContenedorPokemon.addEventListener("click", function(){
-  document.location.href = 'PokedexIndividual.html';
-});
