@@ -1,19 +1,21 @@
 const ContenedorPokemonIndividual = document.querySelector('.Contenedor-PokemonIndividual');
-const listaPokemons = [];
+const URL = 'PokedexIndividual.html';
 const input = document.getElementById('buscador');
 
-
-
 async function fetchPokemon(id) {
-    const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
-    const pokemon = await response.json();
-    listaPokemons.push(pokemon);
-    CrearPokemon(pokemon);
+  const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
+  const pokemon = await response.json();
+  CrearPokemon(pokemon);
 }
 
-fetchPokemon(2);
+async function startDetails() {
+  const response = window.location.search;
+  const pokemon = new URLSearchParams(response);
+  const a = pokemon.get('id');
+  await fetchPokemon(a);
+}
 
-const tiposEspañol = {
+const tiposEspanol = {
   normal: "normal",
   fighting: "lucha",
   flying: "volador",
@@ -62,8 +64,8 @@ function CrearPokemon(pokemonsolo) {
   const tipo2 = document.createElement("div");
   tipo.classList.add("tipoi");
   tipo2.classList.add("tipoi2");
-  tipo.textContent = tiposEspañol[pokemonsolo.types[0].type.name];
-  tipo2.textContent = tiposEspañol[pokemonsolo.types[1] ? pokemonsolo.types[1].type.name : ''];
+  tipo.textContent = tiposEspanol[pokemonsolo.types[0].type.name];
+  tipo2.textContent = tiposEspanol[pokemonsolo.types[1] ? pokemonsolo.types[1].type.name : ''];
   tipo.style.backgroundColor = getTypeColor(pokemonsolo.types[0].type.name);
   tipo2.style.backgroundColor = getTypeColor(pokemonsolo.types[1] ? pokemonsolo.types[1].type.name : '');
   tipos.appendChild(tipo);
