@@ -1,30 +1,33 @@
-<!DOCTYPE html>
+<!DOCtype html>
 <html>
+        <head>
+            <link rel="icon" href="favi.png">
+            <header><a href=pokedex.html class="pokedex">Pokédex</a></header>
+            <link rel="stylesheet" href="estilosdetalles.css">
+            <meta name="viewport" content="width=device-widwth, initial-scale=1.0">
+        </head>
 
-            <head>
-                <header id="header"><a href="pokedex.html" class="pokedex">Pokédex</a></header>
+        <body class="light">
+            <div class="contenedor">
 
-                <link rel="stylesheet" href="estilosdetalles.css">
-                <meta name="viewport" content="width=device-widwth, initial-scale=1.0">
-            </head>
+                <img src="imagen/poke.png" width="25px">
 
-            <body class="light">
+                <input type = "text" id = "buscador" placeholder="Buscar pokemon...">
 
-                <div class="contenedor">
-    
+                <div class="botones">
                     <button id="modoClaro" class="btn">
-                        <img src="imagen/solpixel.png" width="70px" height="80px">
+                        <img src="imagen/solpixel.png" width="70px">
                     </button>
-        
+    
                     <button id="modoOscuro" class="btn">
-                        <img src="imagen/lunapixel.png"  width="110px" height="120px">
+                        <img src="imagen/lunapixel.png"  width="110px">
                     </button>
-                    
                 </div>
-
-                <div class = "Contenedor-PokemonIndividual"> </div>
                 
-                <script src = "detalles.js"> </script>
-            </body>
-        
+            </div>
+                
+            <div class = "Contenedor-PokemonIndividual"> </div>
+                    
+            <script src = "javascriptIndividual.js"> </script>
+        </body>
 </html>
