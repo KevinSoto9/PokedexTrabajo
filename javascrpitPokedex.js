@@ -50,9 +50,10 @@ function CrearPokemon(pokemon) {
   const numeros = document.createElement("p");
   numeros.textContent = `#${pokemon.id.toString().padStart(3, 0)}`;
 
-  const nombre = document.createElement("p");
+  const nombre = document.createElement("a");
   nombre.classList.add("nombre");
   nombre.textContent = pokemon.name;
+  nombre.href = `PokedexIndividual.html?id=${pokemon.id}`;
 
   const tipo = document.createElement("div");
   const tipo2 = document.createElement("div");
