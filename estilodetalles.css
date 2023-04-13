@@ -75,25 +75,28 @@
     margin-bottom: 40px;
     margin-top: 40px;
   }
-  
-  .contenedor {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: auto;
-    height: 100px;
-    padding: 40px;
-    background-color: rgb(224, 212, 212);
-  }
 
   .nombre {
     text-transform: capitalize;
-    font-size: 22px;
+    font-size: 30px;
     letter-spacing: 1px;
+    color: rgb(255,215,0);
+  -webkit-text-stroke: 2px blue;
+  letter-spacing: 2px;
+  text-align: center;
   }
   
   .nombre:hover {
     text-decoration: underline;
+  }
+
+  .numero{
+    font-size: 25px;
+    letter-spacing: 1px;
+    color: rgb(255,215,0);
+  -webkit-text-stroke: 2px blue;
+  letter-spacing: 2px;
+  text-align: center;
   }
   
 .tipoi {
@@ -148,29 +151,35 @@ button {
   margin-left: auto;
 }
 
-.estadistica {
-    display: flex;
-    align-items: center;
-    text-align: left;
+.estadisticas {
+  display: inline-block;
+  margin-right: 10px;
+
 }
   
 .nombre-estadistica {
     flex-shrink: 0;
     width: 100px;
     text-align: left;
-    margin-right: 10px;
+    margin-right: 100px;
+}
+
+.stats{
+  white-space: nowrap;
 }
   
 .barra {
-    flex-grow: 1;
-    justify-content: left;
+    justify-content: center;
     height: 15px;
     background-color: #3db341;
-    margin-top: 5px;
-    border: 1px solid #000;
-    border-radius: 2px;
+    border: 3px solid #000;
     position: relative;
     max-width: 255px;
+    margin-left: 150px;
+}
+
+.barra::-webkit-progress-value {
+  background-color: orange
 }
 
 .altura{
@@ -188,38 +197,38 @@ button {
 .hp{
   display: flex;
   align-items: center;
-  justify-content:space-evenly
+  justify-content:space-between
 }
 
 .ataque{
   display: flex;
   align-items: center;
-  justify-content:space-evenly
+  justify-content:space-between
 }
 
 .defensa{
   display: flex;
   align-items: center;
-  justify-content:space-evenly
+  justify-content:space-between
 }
 
 
 .ataqueEspecial{
   display: flex;
   align-items: center;
-  justify-content:space-evenly
+  justify-content:space-between
 }
 
 .defensaEspecial{
   display: flex;
   align-items: center;
-  justify-content:space-evenly
+  justify-content:space-between
 }
 
 .velocidad{
   display: flex;
   align-items: center;
-  justify-content:space-evenly
+  justify-content:space-between
 }
 
 

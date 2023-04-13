@@ -2,6 +2,7 @@ const ContenedorPokemon = document.querySelector('.Contenedor-Pokemon');
 const listaPokemons = [];
 const input = document.getElementById('buscador');
 
+
 async function fetchPokemons() {
   for (let i = 1; i <= 151; i++) {
     await fetchPokemon(i);
@@ -165,7 +166,6 @@ if (modoActual === 'dark')
 modoClaro.addEventListener('click', establecerModoClaro);
 modoOscuro.addEventListener('click', establecerModoOscuro);
 
-
-ContenedorPokemon.addEventListener('click', () => {
-  window.location.href=`PokedexIndividual.html?id=${pokemon.id}`;
+ContenedorPokemon.addEventListener("click", function(){
+  document.location.href = 'PokedexIndividual.html';
 });

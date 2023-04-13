@@ -11,7 +11,7 @@ async function fetchPokemon(id) {
     CrearPokemon(pokemon);
 }
 
-fetchPokemon(37);
+fetchPokemon(2);
 
 const tiposEspañol = {
   normal: "normal",
@@ -34,7 +34,7 @@ const tiposEspañol = {
   fairy: "hada",
 }
 
-function CrearPokemon(pokemon) {
+function CrearPokemon(pokemonsolo) {
   const contenedor = document.createElement("div");
   contenedor.classList.add("tarjeta2");
 
@@ -46,15 +46,15 @@ function CrearPokemon(pokemon) {
 
   const imagen = document.createElement("img");
   imagen.classList.add("imagen2");
-  imagen.src = pokemon.sprites.other['official-artwork'].front_default;
+  imagen.src = pokemonsolo.sprites.other['official-artwork'].front_default;
 
   const numeros = document.createElement("p");
   numeros.classList.add("numero");
-  numeros.textContent = `#${pokemon.id.toString().padStart(3, 0)}`;
+  numeros.textContent = `#${pokemonsolo.id.toString().padStart(3, 0)}`;
 
   const nombre = document.createElement("p");
   nombre.classList.add("nombre");
-  nombre.textContent = pokemon.name;
+  nombre.textContent = pokemonsolo.name;
 
   const tipos = document.createElement("div");
   tipos.classList.add("tipos")
@@ -62,14 +62,14 @@ function CrearPokemon(pokemon) {
   const tipo2 = document.createElement("div");
   tipo.classList.add("tipoi");
   tipo2.classList.add("tipoi2");
-  tipo.textContent = tiposEspañol[pokemon.types[0].type.name];
-  tipo2.textContent = tiposEspañol[pokemon.types[1] ? pokemon.types[1].type.name : ''];
-  tipo.style.backgroundColor = getTypeColor(pokemon.types[0].type.name);
-  tipo2.style.backgroundColor = getTypeColor(pokemon.types[1] ? pokemon.types[1].type.name : '');
+  tipo.textContent = tiposEspañol[pokemonsolo.types[0].type.name];
+  tipo2.textContent = tiposEspañol[pokemonsolo.types[1] ? pokemonsolo.types[1].type.name : ''];
+  tipo.style.backgroundColor = getTypeColor(pokemonsolo.types[0].type.name);
+  tipo2.style.backgroundColor = getTypeColor(pokemonsolo.types[1] ? pokemonsolo.types[1].type.name : '');
   tipos.appendChild(tipo);
   tipos.appendChild(tipo2);
 
-  if (!pokemon.types[1]) {
+  if (!pokemonsolo.types[1]) {
     tipo2.style.border = 'none';
   }
 
@@ -84,7 +84,7 @@ function CrearPokemon(pokemon) {
   const alturanumero = document.createElement("p");
   alturalabel.textContent = `Altura: `;
   altura.classList.add("altura");
-  alturanumero.textContent = pokemon.height / 10 + " m";
+  alturanumero.textContent = pokemonsolo.height / 10 + " m";
   altura.appendChild(alturalabel);
   altura.appendChild(alturanumero);
   estadisticas.appendChild(altura)
@@ -92,9 +92,9 @@ function CrearPokemon(pokemon) {
   const peso = document.createElement("div");
   const pesolabel = document.createElement("span");
   const pesonumero = document.createElement("p");
-  pesolabel.textContent = `Peso`;
+  pesolabel.textContent = `Peso:`;
   peso.classList.add("peso");
-  pesonumero.textContent = pokemon.weight / 10 + " Kg";
+  pesonumero.textContent = pokemonsolo.weight / 10 + " Kg";
   peso.appendChild(pesolabel);
   peso.appendChild(pesonumero);
   estadisticas.appendChild(peso);
@@ -105,10 +105,10 @@ function CrearPokemon(pokemon) {
   const hpBarra = document.createElement("progress");
   hpLabel.textContent = `HP: `;
   hp.classList.add("hp")
-  hpnumero.textContent = pokemon.stats[0].base_stat + " / 255";
-  hpBarra.max = '200';
+  hpnumero.textContent = pokemonsolo.stats[0].base_stat + " / 255";
+  hpBarra.max = '255';
   hpBarra.classList.add("barra");
-  hpBarra.value = `${pokemon.stats[0].base_stat}`;
+  hpBarra.value = `${pokemonsolo.stats[0].base_stat}`;
   hp.appendChild(hpLabel);
   hp.appendChild(hpnumero)
   hp.appendChild(hpBarra);
@@ -120,10 +120,10 @@ function CrearPokemon(pokemon) {
   const ataqueBarra = document.createElement("progress");
   ataqueLabel.textContent = `Ataque: `;
   ataque.classList.add("ataque")
-  ataquenumero.textContent = pokemon.stats[1].base_stat + " / 255";
-  ataqueBarra.max = '200';
+  ataquenumero.textContent = pokemonsolo.stats[1].base_stat + " / 255";
+  ataqueBarra.max = '255';
   ataqueBarra.classList.add("barra");
-  ataqueBarra.value = `${pokemon.stats[1].base_stat}`;
+  ataqueBarra.value = `${pokemonsolo.stats[1].base_stat}`;
   ataque.appendChild(ataqueLabel);
   ataque.appendChild(ataquenumero)
   ataque.appendChild(ataqueBarra);
@@ -135,10 +135,10 @@ function CrearPokemon(pokemon) {
   const defensaBarra = document.createElement("progress");
   defensaLabel.textContent = `Defensa: `;
   defensa.classList.add("defensa")
-  defensanumero.textContent = pokemon.stats[2].base_stat + " / 255";
+  defensanumero.textContent = pokemonsolo.stats[2].base_stat + " / 255";
   defensaBarra.classList.add("barra");
-  defensaBarra.max = '200';
-  defensaBarra.value = `${pokemon.stats[2].base_stat}`;
+  defensaBarra.max = '255';
+  defensaBarra.value = `${pokemonsolo.stats[2].base_stat}`;
   defensa.appendChild(defensaLabel);
   defensa.appendChild(defensanumero)
   defensa.appendChild(defensaBarra);
@@ -150,10 +150,10 @@ function CrearPokemon(pokemon) {
   const ataqueEspecialBarra = document.createElement("progress");
   ataqueEspecialLabel.textContent = `Ataque Especial: `;
   ataqueEspecial.classList.add("ataqueEspecial");
-  ataqueEspecialNumero.textContent = pokemon.stats[3].base_stat + " / 255";
+  ataqueEspecialNumero.textContent = pokemonsolo.stats[3].base_stat + " / 255";
   ataqueEspecialBarra.classList.add("barra");
-  ataqueEspecialBarra.max = '200';
-  ataqueEspecialBarra.value = `${pokemon.stats[3].base_stat}`;
+  ataqueEspecialBarra.max = '255';
+  ataqueEspecialBarra.value = `${pokemonsolo.stats[3].base_stat}`;
   ataqueEspecial.appendChild(ataqueEspecialLabel);
   ataqueEspecial.appendChild(ataqueEspecialNumero);
   ataqueEspecial.appendChild(ataqueEspecialBarra);
@@ -165,10 +165,10 @@ function CrearPokemon(pokemon) {
   const defensaEspecialBarra = document.createElement("progress");
   defensaEspecialLabel.textContent = `Defensa Especial: `;
   defensaEspecial.classList.add("defensaEspecial")
-  defensaEspecialNumero.textContent = pokemon.stats[4].base_stat + " / 255";
-  defensaEspecialBarra.max = '200';
+  defensaEspecialNumero.textContent = pokemonsolo.stats[4].base_stat + " / 255";
+  defensaEspecialBarra.max = '255';
   defensaEspecialBarra.classList.add("barra");
-  defensaEspecialBarra.value = `${pokemon.stats[4].base_stat}`;
+  defensaEspecialBarra.value = `${pokemonsolo.stats[4].base_stat}`;
   defensaEspecial.appendChild(defensaEspecialLabel);
   defensaEspecial.appendChild(defensaEspecialNumero)
   defensaEspecial.appendChild(defensaEspecialBarra);
@@ -180,10 +180,10 @@ function CrearPokemon(pokemon) {
   const velocidadBarra = document.createElement("progress");
   velocidadLabel.textContent = `Velocidad: `;
   velocidad.classList.add("velocidad");
-  velocidadNumero.textContent = pokemon.stats[5].base_stat + " / 255";
-  velocidadBarra.max = '200';
+  velocidadNumero.textContent = pokemonsolo.stats[5].base_stat + " / 255";
+  velocidadBarra.max = '255';
   velocidadBarra.classList.add("barra");
-  velocidadBarra.value = `${pokemon.stats[5].base_stat}`;
+  velocidadBarra.value = `${pokemonsolo.stats[5].base_stat}`;
   velocidad.appendChild(velocidadLabel);
   velocidad.appendChild(velocidadNumero);
   velocidad.appendChild(velocidadBarra);
@@ -201,16 +201,16 @@ function CrearPokemon(pokemon) {
   ContenedorPokemonIndividual.appendChild(contenedor);
 
 
-   if (!pokemon.types[1]) {
+   if (!pokemonsolo.types[1]) {
     tipo2.style.border = 'none';
   }
 
   imagen.addEventListener("mouseover",function(){
-    imagen.src = pokemon.sprites.other['official-artwork'].front_shiny
+    imagen.src = pokemonsolo.sprites.other['official-artwork'].front_shiny
   })
 
   imagen.addEventListener("mouseout",function(){
-    imagen.src = pokemon.sprites.other['official-artwork'].front_default;
+    imagen.src = pokemonsolo.sprites.other['official-artwork'].front_default;
   })
 }
 
@@ -256,42 +256,30 @@ function getTypeColor(typeName) {
 }
 
 function borrarPokemons() {
-  const contenedor = document.querySelector('.Contenedor-Pokemon');
-  while (contenedor.firstChild) {
-    contenedor.firstChild.remove();
-  }
+  const contenedoxr = document.querySelector('.Contenedor-PokemonIndividual');
+   contenedor.firstChild.remove();
+  
 }
-
-input.addEventListener('input', function() {
-  const busqueda = input.value.toLowerCase();
-
-  borrarPokemons();
-
-  const pokemonsFiltrados = listaPokemons.filter(pokemon => pokemon.name.includes(busqueda));
-
-  pokemonsFiltrados.forEach(pokemon => {
-    CrearPokemon(pokemon);
-  });
-});
 
 const modoClaro = document.getElementById('modoClaro');
 const modoOscuro = document.getElementById('modoOscuro');
 let modoActual = localStorage.getItem('modo');
-    
+      
 function establecerModoClaro() {
   document.body.classList.remove('dark');
   document.body.classList.add('light');
   localStorage.setItem('modo', 'light');
 }
-    
+      
 function establecerModoOscuro() {
   document.body.classList.remove('light');
   document.body.classList.add('dark');
   localStorage.setItem('modo', 'dark');
 }
-    
+      
 if (modoActual === 'dark')
   establecerModoOscuro();
-    
+      
 modoClaro.addEventListener('click', establecerModoClaro);
 modoOscuro.addEventListener('click', establecerModoOscuro);
+
