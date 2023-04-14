@@ -52,7 +52,9 @@ const tiposEspanol = {
 const itemsEspanol = {
   'fire-stone': "piedra fuego",
   'water-stone': "piedra agua",
-  'moon-stone': "piedra lunar"
+  'moon-stone': "piedra lunar",
+  'thunder-stone': "piedra trueno",
+  'leaf-stone': "piedra hoja"
 }
 
 async function CrearEspecie(pokemonsolo){
@@ -161,8 +163,8 @@ async function CrearEvolucion(pokemonsolo){
  const ayuda = document.createElement("p")
  ayuda.textContent = pokemonsolo.chain.id
  
- const urlayuda =  fetch(`https://pokeapi.co/api/v2/pokemon/${ayuda}`);
- const pokemon3 = urlayuda.json();
+ const urlayuda = await fetch(`https://pokeapi.co/api/v2/pokemon/${ayuda}`);
+ const pokemon3 = await urlayuda.json();
  CrearImagen(pokemon3)
 
 }
