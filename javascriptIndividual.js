@@ -20,7 +20,6 @@ async function fetchImagen(id) {
   CrearImagen(pokemon);
 }
 
-
 async function startDetails() {
   const response = window.location.search;
   const pokemon = new URLSearchParams(response);
@@ -50,6 +49,12 @@ const tiposEspanol = {
   fairy: "hada",
 }
 
+const itemsEspanol = {
+  'fire-stone': "piedra fuego",
+  'water-stone': "piedra agua",
+  'moon-stone': "piedra lunar"
+}
+
 async function CrearEspecie(pokemonsolo){
   const url = document.createElement("p")
   url.textContent = pokemonsolo.evolution_chain.url
@@ -60,27 +65,55 @@ async function CrearEspecie(pokemonsolo){
 }
 
 function CrearImagen(pokemonsolo){
-
+  const ContenedorImagen = document.querySelector('.contenedorImagen');
   const imagen1 = document.createElement("img");
-  imagen1.classList.add("imagen2");
-  imagen1.src = pokemonsolo.sprites.other['official-artwork'].front_default;
+  imagen1.classList.add(`imagen3`);
+  imagen1.src = pokemonsolo.sprites.front_default;
 
-  ContenedorPokemonIndividual.appendChild(imagen1);
+  ContenedorImagen.appendChild(imagen1);
+  ContenedorPokemonIndividual.appendChild(ContenedorImagen);
 }
 
-function CrearEvolucion(pokemonsolo){
+async function CrearEvolucion(pokemonsolo){
   const contenedorEvo = document.createElement("div");
+  const evoinfo = document.createElement("div");
+  const nombres = document.createElement("div");
+  nombres.classList.add("nombres")
+  evoinfo.classList.add("evoinfo")
   contenedorEvo.classList.add("evo")
   const evo1 = document.createElement("p");
   const evo2 = document.createElement("p");
   const evo25 = document.createElement("p")
   const evo3 = document.createElement("p");
   const nombrePokemon = document.createElement("p");
+  const objetoLabel = document.createElement("p");
+  const objeto = document.createElement("p")
+  const objetoPosible = document.createComment("p");
+  const nivel = document.createElement("p");
+  const nivel2 = document.createElement("p")
+  objetoLabel.textContent = 'Evolucion:  '
   nombrePokemon.textContent = pokemonsolo.chain.species.name;
   evo1.textContent = pokemonsolo.chain.evolves_to[0] ? pokemonsolo.chain.evolves_to[0].species.name : null ;
   evo2.textContent = pokemonsolo.chain.evolves_to[1] ? pokemonsolo.chain.evolves_to[1].species.name : null ;
   evo25.textContent = pokemonsolo.chain.evolves_to[2] ? pokemonsolo.chain.evolves_to[2].species.name : null ;
   evo3.textContent = pokemonsolo.chain.evolves_to[0].evolves_to[0] ? pokemonsolo.chain.evolves_to[0].evolves_to[0].species.name : null ;
+  objeto.textContent = 'Objeto ' + itemsEspanol[pokemonsolo.chain.evolves_to[0].evolution_details[0].item ?  pokemonsolo.chain.evolves_to[0].evolution_details[0].item.name : null]
+  objetoPosible.textContent = 'Objeto' + itemsEspanol[pokemonsolo.chain.evolves_to[0].evolves_to ? pokemonsolo.chain.evolves_to[0].evolves_to[0] ? pokemonsolo.chain.evolves_to[0].evolves_to[0].evolution_details.item : null :null];
+  nivel.textContent = pokemonsolo.chain.evolves_to ?  'Nivel ' + pokemonsolo.chain.evolves_to[0].evolution_details[0].min_level  : null;
+  nivel2.textContent = pokemonsolo.chain.evolves_to[0].evolves_to[0] ?  'Nivel ' + pokemonsolo.chain.evolves_to[0].evolves_to[0].evolution_details[0].min_level : null;
+
+  evoinfo.appendChild(objetoLabel)
+  evoinfo.appendChild(objeto)
+  evoinfo.appendChild(objetoPosible)
+  evoinfo.appendChild(nivel)
+  evoinfo.appendChild(nivel2)
+  nombres.appendChild(nombrePokemon)
+  nombres.appendChild(evo25)
+  nombres.appendChild(evo1)
+  nombres.appendChild(evo2)
+  nombres.appendChild(evo3)
+
+
 
 
   fetchImagen(nombrePokemon.textContent)
@@ -89,23 +122,38 @@ function CrearEvolucion(pokemonsolo){
   fetchImagen(evo25.textContent)
   fetchImagen(evo3.textContent)
 
-  contenedorEvo.appendChild(nombrePokemon)
-  contenedorEvo.appendChild(evo1);
-  contenedorEvo.appendChild(evo2);
-  contenedorEvo.appendChild(evo25);
-  contenedorEvo.appendChild(evo3);
 
-ContenedorPokemonIndividual.appendChild(contenedorEvo)
+ ContenedorPokemonIndividual.appendChild(evoinfo)
+ ContenedorPokemonIndividual.appendChild(nombres)
 
- if(evo25 == null){
-  const a = document.getElementsByClassName("evo");
-  a.thirdChild.remove()
+ if(evo25.textContent === null){
+  evo25.textContent = '';
+ }
+
+ if(evo2.textContent === null){
+  evo2.textContent = '';
+ }
+
+ if(evo3.textContent === null){
+  evo3.textContent = '';
+ }
+
+ if(objeto.textContent === 'Objeto undefined'){
+  objeto.textContent = '';
+ }
+
+ if(nivel.textContent === 'Nivel null'){
+  nivel.textContent = '';
+ }
+
+ if(nivel2.textContent === 'Nivel null'){
+  nivel2.textContent = '';
  }
 
  const ayuda = document.createElement("p")
  ayuda.textContent = pokemonsolo.chain.id
  
- const urlayuda = fetch(`https://pokeapi.co/api/v2/pokemon/${ayuda}`);
+ const urlayuda =  fetch(`https://pokeapi.co/api/v2/pokemon/${ayuda}`);
  const pokemon3 = urlayuda.json();
  CrearImagen(pokemon3)
 
@@ -124,7 +172,7 @@ function CrearPokemon(pokemonsolo) {
 
   const imagen = document.createElement("img");
   imagen.classList.add("imagen2");
-  imagen.src = pokemonsolo.sprites.other['official-artwork'].front_default;
+  imagen.src = pokemonsolo.sprites.front_default;
 
   const numeros = document.createElement("p");
   numeros.classList.add("numero");
@@ -284,11 +332,11 @@ function CrearPokemon(pokemonsolo) {
   }
 
   imagen.addEventListener("mouseover",function(){
-    imagen.src = pokemonsolo.sprites.other['official-artwork'].front_shiny
+    imagen.src = pokemonsolo.sprites.front_shiny
   })
 
   imagen.addEventListener("mouseout",function(){
-    imagen.src = pokemonsolo.sprites.other['official-artwork'].front_default;
+    imagen.src = pokemonsolo.sprites.front_default;
   })
 }
 
