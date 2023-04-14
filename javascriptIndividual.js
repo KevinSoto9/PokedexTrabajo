@@ -136,6 +136,114 @@ async function CrearEvolucion(pokemonsolo){
  ContenedorPokemonIndividual.appendChild(evoinfo)
  ContenedorPokemonIndividual.appendChild(nombres)
 
+if(nombrePokemon.textContent === 'eevee'){
+  evo1.textContent = 'jolteon';
+  evo2.textContent = 'flareon';
+  evo25.textContent = 'vaporeon';
+
+}
+
+if(nombrePokemon.textContent === 'pichu'){
+  nombrePokemon.textContent =  '';
+}
+
+if(nombrePokemon.textContent === 'cleffa'){
+  nombrePokemon.textContent = '';
+}
+
+if(nombrePokemon.textContent === 'zubat'){
+  evo3.textContent = '';
+}
+
+if(nombrePokemon.textContent === 'meowth'){
+  evo2.textContent = '';
+}
+
+if(nombrePokemon.textContent === 'slowpoke'){
+  evo2.textContent = '';
+}
+
+if(nombrePokemon.textContent === 'magnemite'){
+  evo3.textContent = '';
+}
+
+if(nombrePokemon.textContent === 'rhyhorn'){
+  evo3.textContent = '';
+}
+if(nombrePokemon.textContent === 'horsea'){
+  evo3.textContent = '';
+}
+
+if(nombrePokemon.textContent === 'tangela'){
+  evo1.textContent = '';
+}
+
+if(nombrePokemon.textContent === 'happiny'){
+  nombrePokemon.textContent = '';
+  evo3.textContent = '';
+}
+
+
+
+if(nombrePokemon.textContent === 'farfetchd'){
+  evo1.textContent = '';
+}
+
+if(nombrePokemon.textContent === 'lickitung'){
+  evo1.textContent = '';
+}
+
+if(nombrePokemon.textContent === "igglybuff"){
+  nombrePokemon.textContent = '';
+}
+
+if(nombrePokemon.textContent === "onix"){
+  evo1.textContent = '';
+}
+
+if(nombrePokemon.textContent === "munchlax"){
+  nombrePokemon.textContent = '';
+}
+
+if(nombrePokemon.textContent === "smoochum"){
+  nombrePokemon.textContent = '';
+}
+
+if(nombrePokemon.textContent === 'mime-jr'){
+  nombrePokemon.textContent = '';
+  evo3.textContent = '';
+}
+
+if(nombrePokemon.textContent === 'elekid'){
+  nombrePokemon.textContent = '';
+  evo3.textContent = '';
+}
+
+if(nombrePokemon.textContent === 'scyther'){
+  evo1.textContent = '';
+  evo2.textContent = '';
+}
+
+if(nombrePokemon.textContent === 'porygon'){
+  evo1.textContent = '';
+  evo3.textContent = '';
+}
+
+if(nombrePokemon.textContent === 'magby'){
+  nombrePokemon.textContent = '';
+  evo3.textContent = '';
+}
+
+if(nombrePokemon.textContent === 'tyrogue'){
+  nombrePokemon.textContent = ``;
+  evo2.textContent = '';
+  evo25.textContent = 'hitmonlee';
+  evo1.textContent = 'hitmonchan';
+}
+
+
+
+
  if(evo25.textContent === null){
   evo25.textContent = '';
  }
