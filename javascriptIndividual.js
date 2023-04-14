@@ -68,7 +68,15 @@ function CrearImagen(pokemonsolo){
   const ContenedorImagen = document.querySelector('.contenedorImagen');
   const imagen1 = document.createElement("img");
   imagen1.classList.add(`imagen3`);
-  imagen1.src = pokemonsolo.sprites.front_default;
+  imagen1.src = pokemonsolo.sprites.other['official-artwork'].front_default
+
+  imagen1.addEventListener("mouseover",function(){
+    imagen1.src = pokemonsolo.sprites.other['official-artwork'].front_shiny
+  })
+
+  imagen1.addEventListener("mouseout",function(){
+    imagen1.src = pokemonsolo.sprites.other['official-artwork'].front_default
+  })
 
   ContenedorImagen.appendChild(imagen1);
   ContenedorPokemonIndividual.appendChild(ContenedorImagen);
@@ -172,7 +180,7 @@ function CrearPokemon(pokemonsolo) {
 
   const imagen = document.createElement("img");
   imagen.classList.add("imagen2");
-  imagen.src = pokemonsolo.sprites.front_default;
+  imagen.src = pokemonsolo.sprites.other['official-artwork'].front_default
 
   const numeros = document.createElement("p");
   numeros.classList.add("numero");
@@ -332,11 +340,11 @@ function CrearPokemon(pokemonsolo) {
   }
 
   imagen.addEventListener("mouseover",function(){
-    imagen.src = pokemonsolo.sprites.front_shiny
+    imagen.src = pokemonsolo.sprites.other['official-artwork'].front_shiny
   })
 
   imagen.addEventListener("mouseout",function(){
-    imagen.src = pokemonsolo.sprites.front_default;
+    imagen.src = pokemonsolo.sprites.other['official-artwork'].front_default
   })
 }
 
